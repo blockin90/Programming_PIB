@@ -1,0 +1,19 @@
+1.<test>
+2.	<node1>someValue</node1>
+3.	<node2>someValue</node2>
+4.  <node3>someValue</node3>
+5.         	<node4>someValue</node4>
+6.	<node5>some Value</node1>
+7.	<node1>someValue</node1>
+8.	<node3>someValue</nod3>
+9.	        <node2>some Value</node1>
+10.	<node1>someValue</node1>
+11.<creation_date>someValue</creation_date>
+12.	<node1>some value</node1>
+13.	<client_address>ул. Высоцкого д. 20/3</client_address>
+14.	<coordinate>Новосибирск: широта 60.5678, долгота 54.1234</coordinate>
+15.	<client_data>Иванов Иван Иванович, 20 лет, г. Новосибирск.</node1>	
+13.	<client_address>ул. Ленина д. 159</client_address>
+14.	<coordinate>Омск: 50.3826, 34.9034</coordinate>
+15.	<client_data>Сидоров Петр Петрович, 30 лет, г. Омск.</client_data>	
+16.</test>
