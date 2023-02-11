@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfLecture2.TransformForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLecture2"
+        mc:Ignorable="d"
+        Title="TransformForm" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" x:Name="captcha">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="50" Margin="10">
+                        <TextBlock.Effect>
+                            <BlurEffect Radius="{Binding Source={x:Static local:TransformForm.BlurEffectRadius}}"/>
+                        </TextBlock.Effect>
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="{Binding Source={x:Static local:TransformForm.ScaleValue}}" ScaleY="{Binding Source={x:Static local:TransformForm.ScaleValue}}"/>
+                                <RotateTransform Angle="{Binding Source={x:Static local:TransformForm.AngleValue}}"/>
+                                <TranslateTransform X="{Binding Source={x:Static local:TransformForm.TranslateValue}}" Y="{Binding Source={x:Static local:TransformForm.TranslateValue}}"/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBlock Text="{Binding Captcha}" Grid.Column="1" Grid.Row="1" FontSize="20" Height="100" />
+        <Button Grid.Column="1" Grid.Row="2" Content="Update" Margin="5" Click="Button_Click" />
+    </Grid>
+</Window>

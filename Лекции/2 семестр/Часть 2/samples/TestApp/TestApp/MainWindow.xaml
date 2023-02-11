@@ -1,0 +1,24 @@
+﻿<Window x:Class="TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Menu>
+            <MenuItem Header="StackPanel" Click="StackPanel_Click"/>
+            <MenuItem Header="Grid" Click="Grid_Click"/>
+            <MenuItem Header="UniformGrid" Click="UniformGrid_Click"/>
+            <MenuItem Header="DockPanel" Click="DockPanel_Click"/>
+            <MenuItem Header="ListForms" Click="ListForms_Click"/>
+            <MenuItem Header="BindingForms" Click="Binding_Click"/>
+        </Menu>
+    </Grid>
+</Window>

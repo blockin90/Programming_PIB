@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfLecture2.CustomForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLecture2"
+        mc:Ignorable="d"
+        Height="450" Width="800" Background="Transparent"
+            ResizeMode="NoResize" AllowsTransparency="True" BorderBrush="Transparent" BorderThickness="0" WindowStyle="None"
+        MouseDown="Window_MouseDown">
+    <Grid Opacity="1">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/background.png"/>
+        </Grid.Background>
+        
+        <Button Click="Button_Click" Width="50" Height="50" Margin="262,148,438,252" Background="Transparent" BorderBrush="Transparent" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

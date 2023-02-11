@@ -1,0 +1,18 @@
+﻿<Window x:Class="TestApp.DockPanelForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp"
+        mc:Ignorable="d"
+        Title="DockPanelForm" Height="450" Width="800">
+    <DockPanel>
+        <Button Background="Bisque" DockPanel.Dock="Top">Header</Button>
+        <Button Background="Bisque" DockPanel.Dock="Bottom">Bottom</Button>
+        <ListBox Width="200" DockPanel.Dock="Left" Background="Azure"/>
+        <Grid>
+            
+        </Grid>
+
+    </DockPanel>
+</Window>
