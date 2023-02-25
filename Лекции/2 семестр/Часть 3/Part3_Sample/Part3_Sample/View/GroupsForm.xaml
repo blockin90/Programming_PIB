@@ -9,6 +9,9 @@
     <DockPanel>
         <Button DockPanel.Dock="Bottom" Click="DeleteGroup1_Click">Удалить</Button>
         <Button DockPanel.Dock="Bottom" Click="EditGroup_Click">Редактирование</Button>
+        <Button DockPanel.Dock="Bottom" Click="AddGroupWithValidationRule_Click">Добавить группу (с валидацией на ValidationRule)</Button>
+        <Button DockPanel.Dock="Bottom" Click="AddGroupWithAttributes_Click">Добавить группу (с валидацией на атрибутах)</Button>
+        <Button DockPanel.Dock="Bottom" Click="AddGroupWithDataErrorInfo_Click">Пример валидации на IDataErrorInfo</Button>
         <Button DockPanel.Dock="Bottom" Click="AddGroup2_Click">Добавить группу (способ 2)</Button>
         <Button DockPanel.Dock="Bottom" Click="AddGroup1_Click">Добавить группу (способ 1)</Button>
         <!--

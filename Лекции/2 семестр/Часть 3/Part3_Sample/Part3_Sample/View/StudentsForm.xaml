@@ -25,7 +25,7 @@
             </DockPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Поиск по фамилии"/>
-                <TextBox Text="{Binding FilterName, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+                <TextBox Text="{Binding FilterName, UpdateSourceTrigger=PropertyChanged}" Width="200" />
             </StackPanel>
         </StackPanel>
         <DockPanel>

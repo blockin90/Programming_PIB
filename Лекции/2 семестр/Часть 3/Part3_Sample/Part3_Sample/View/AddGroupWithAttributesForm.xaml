@@ -1,0 +1,30 @@
+﻿<Window x:Class="Part3_Sample.View.AddGroupWithAttributesForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Part3_Sample.View"
+        mc:Ignorable="d"
+        Title="AddGroupWithAttributesForm" Height="150" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название группы"/>
+        <TextBlock Text="Год набор" Grid.Row="1"/>
+        <TextBlock Text="Факультет" Grid.Row="2"/>
+
+        <TextBox Grid.Column="1" Text="{Binding Name}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Year}"/>
+        <ComboBox x:Name="cbFaculty" Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Faculty}" DisplayMemberPath="FacultyName"/>
+        <Button Grid.Column="0" Grid.Row="3" Click="SaveClick">Сохранить</Button>
+        <Button Grid.Column="1" Grid.Row="3" Click="CancelClick">Отмена</Button>
+    </Grid>
+</Window>

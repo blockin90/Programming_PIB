@@ -70,6 +70,15 @@
     <Compile Include="View\AddGroupForm2.xaml.cs">
       <DependentUpon>AddGroupForm2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddGroupWithAttributesForm.xaml.cs">
+      <DependentUpon>AddGroupWithAttributesForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddGroupWithDataErrorInfoForm.xaml.cs">
+      <DependentUpon>AddGroupWithDataErrorInfoForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddGroupWithValidationRuleForm.xaml.cs">
+      <DependentUpon>AddGroupWithValidationRuleForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GroupsForm.xaml.cs">
       <DependentUpon>GroupsForm.xaml</DependentUpon>
     </Compile>
@@ -93,6 +102,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddGroupForm2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddGroupWithAttributesForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddGroupWithDataErrorInfoForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddGroupWithValidationRuleForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

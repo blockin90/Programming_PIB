@@ -87,5 +87,35 @@ namespace Part3_Sample.View
             }
             dgGroups.ItemsSource = UniversityModel.Instance.Groups.ToArray();
         }
+
+        private void AddGroupWithValidationRule_Click(object sender, RoutedEventArgs e)
+        {
+            AddGroupWithValidationRuleForm form = new AddGroupWithValidationRuleForm();
+            if (form.ShowDialog() == true) {
+                var newGroup = form.Group;
+                UniversityModel.Instance.Groups.Add(newGroup);
+                UniversityModel.Instance.SaveChanges();
+
+                dgGroups.ItemsSource = UniversityModel.Instance.Groups.ToArray();
+            }
+
+        }
+
+        private void AddGroupWithDataErrorInfo_Click(object sender, RoutedEventArgs e)
+        {
+            AddGroupWithDataErrorInfoForm form = new AddGroupWithDataErrorInfoForm();
+            form.ShowDialog();
+        }
+
+        private void AddGroupWithAttributes_Click(object sender, RoutedEventArgs e)
+        {
+            AddGroupWithAttributesForm form = new AddGroupWithAttributesForm();
+            if (form.ShowDialog() == true) {
+                var newGroup = form.Group;
+                UniversityModel.Instance.Groups.Add(newGroup);
+                UniversityModel.Instance.SaveChanges();
+                dgGroups.ItemsSource = UniversityModel.Instance.Groups.ToArray();
+            }
+        }
     }
 }

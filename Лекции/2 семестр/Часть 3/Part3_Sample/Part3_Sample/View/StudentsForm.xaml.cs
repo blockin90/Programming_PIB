@@ -1,6 +1,7 @@
 ﻿using Part3_Sample.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace Part3_Sample.View
             var groups = UniversityModel.Instance.Groups.ToArray();
             cmbGroups.ItemsSource = groups;
             cmbGroups.SelectedIndex = 0;
+
+
         }
     }
 }
