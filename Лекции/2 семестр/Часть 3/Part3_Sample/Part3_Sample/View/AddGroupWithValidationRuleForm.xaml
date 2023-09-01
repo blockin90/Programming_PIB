@@ -26,7 +26,7 @@
                 <Binding Path="Name" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
                         <ExceptionValidationRule/>
-                        <local:GroupNameValidationRule/>
+                        <local:AttributeValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

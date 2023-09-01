@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -17,9 +18,61 @@ using System.Windows.Shapes;
 
 namespace Part3_Sample.View
 {
+    public class AttributeValidationRule : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            return ValidationResult.ValidResult;
+        }
+
+        object GetValidatingObject(BindingExpressionBase owner)
+        {
+            Type BBType = owner.GetType();
+            WeakReference weakReference = (WeakReference)BBType.GetField("_dataItem", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static).GetValue(owner);
+            return weakReference.Target;
+        }
+        string GetPropertyName(BindingBase owner)
+        {
+            Type BBType = owner.GetType();
+            PropertyPath pp = (PropertyPath)BBType.GetField("_ppath", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static).GetValue(owner);
+            return pp.Path;
+        }
+
+        List<System.ComponentModel.DataAnnotations.ValidationAttribute> GetValidationAttributes(object Object, string PropertyName)
+        {
+            Type OType = Object.GetType().BaseType;
+            PropertyInfo fieldInfo = OType.GetProperty(PropertyName);
+            object[] attributes = fieldInfo.GetCustomAttributes(true);
+            List<System.ComponentModel.DataAnnotations.ValidationAttribute> result = new List<System.ComponentModel.DataAnnotations.ValidationAttribute>();
+            foreach (object attribute in attributes) {
+                if (attribute is System.ComponentModel.DataAnnotations.ValidationAttribute) {
+                    result.Add((System.ComponentModel.DataAnnotations.ValidationAttribute)attribute);
+                }
+            }
+            return result;
+        }
+
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo, BindingExpressionBase owner)
+        {
+
+            object ValidatingObject = GetValidatingObject(owner);
+            string PName = GetPropertyName(owner.ParentBindingBase);
+            List<System.ComponentModel.DataAnnotations.ValidationAttribute> validationAttributes = GetValidationAttributes(ValidatingObject, PName);
+            foreach (System.ComponentModel.DataAnnotations.ValidationAttribute validationAttribute in validationAttributes) {
+                if (!validationAttribute.IsValid(value)) {
+                    return new ValidationResult(false, validationAttribute.ErrorMessage);
+                }
+            }
+            //MessageBox.Show(GetPropertyName(owner.ParentBindingBase));
+
+
+            return base.Validate(value, cultureInfo, owner);
+        }
+    }
 
     class GroupNameValidationRule : ValidationRule
     {
+
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string str = (string)value;
